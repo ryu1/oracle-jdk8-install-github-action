@@ -19,5 +19,9 @@ jobs:
 
           sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_191/bin/java 1
           sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_191/bin/javac 1
-          sudo update-alternatives --install /usr/local/java_home java_home /opt/jdk1.8.0_45 1
+          sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8.0_191/bin/jar 1
+          sudo update-alternatives --install /usr/local/java_home java_home /usr/lib/jdk1.8.0_45 1
           echo 'export JAVA_HOME=/usr/local/java_home' >> /etc/profile.d/jdk.sh
+          java -version
+          javac -version
+          echo $JAVA_HOME
