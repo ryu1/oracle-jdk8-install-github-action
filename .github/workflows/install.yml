@@ -12,4 +12,6 @@ jobs:
           wget --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=$CONFIRM&id=$ID" -O $FILE
           sudo mkdir -p /usr/lib/jvm
           sudo tar zxvf $FILE -C /usr/lib/jvm
+          sudo whoami
           ls -l /usr/lib/jvm
+          ls -l /usr/lib/jvm/jdk1.8.0_191
