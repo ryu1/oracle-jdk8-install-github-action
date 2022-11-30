@@ -14,15 +14,12 @@ jobs:
           sudo tar zxvf $FILE -C /usr/lib/jvm
           sudo chown -R root:root /usr/lib/jvm/jdk1.8.0_191
           sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_191/bin/java 1
-          sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_191/bin/java
-          java -version
+          sudo update-alternatives --set java 
           sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_191/bin/javac 1
-          sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_191/bin/javac
-          javac -version
           sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8.0_191/bin/jar 1
-          sudo update-alternatives --set jar /usr/lib/jvm/jdk1.8.0_191/bin/jar
           sudo update-alternatives --install /usr/local/java_home java_home /usr/lib/jvm/jdk1.8.0_191 1
-          sudo update-alternatives --set java_home /usr/lib/jvm/jdk1.8.0_191
           sudo sh -c 'echo "export JAVA_HOME=/usr/local/java_home" >> /etc/profile.d/jdk.sh'
           source /etc/profile.d/jdk.sh
+          java -version
+          javac -version
           echo $JAVA_HOME
