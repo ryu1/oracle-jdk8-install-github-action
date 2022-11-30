@@ -27,3 +27,6 @@ jobs:
           source /etc/profile.d/jdk.sh
           echo $JAVA_HOME
           ls -l $JAVA_HOME
+          cd $JAVA_HOME
+          ls -l
+          ls -l /etc/alternatives/java_home
