@@ -13,12 +13,16 @@ jobs:
           sudo mkdir -p /usr/lib/jvm
           sudo tar zxvf $FILE -C /usr/lib/jvm
           sudo chown -R root:root /usr/lib/jvm/jdk1.8.0_191
-          sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_191/bin/java 1
-          sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_191/bin/javac 1
-          sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8.0_191/bin/jar 1
-          sudo update-alternatives --install /usr/local/java_home java_home /usr/lib/jvm/jdk1.8.0_191 1
-          sudo echo 'export JAVA_HOME=/usr/local/java_home' >> /etc/profile.d/jdk.sh
-          sudo sh -c 'echo "export JAVA_HOME=/usr/local/java_home" >> /etc/profile.d/jdk.sh'
-          java -version
-          javac -version
-          echo $JAVA_HOME
+
+          ls -l /usr/lib/jvm
+          ls -l /usr/lib/jvm/jdk1.8.0_191
+
+          update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-8-oracle/bin/java 100
+          sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-8-oracle/bin/javac 100
+
+          update-alternatives --display java
+
+          update-alternatives --display javac
+          alternatives --install /usr/local/java_home java_home /opt/jdk1.8.0_45 2
+
+          echo 'export JAVA_HOME=/usr/local/java_home' >> /etc/profile.d/jdk.sh
