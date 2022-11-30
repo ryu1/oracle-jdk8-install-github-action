@@ -1,0 +1,16 @@
+name: Install JDK
+on: [ workflow_dispatch ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install jdk
+        run: |
+          ID="1WAd6ESc_pJP8KRdcg6RbYRI4w6o1IbZ_"
+          FILE="jdk-8u191-linux-x64.tar.gz"
+          CONFIRM=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://drive.google.com/uc?export=download&id=$ID" -O- | sed -En 's/.*confirm=([0-9A-Za-z_]+).*/\1/p')
+          wget --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=$CONFIRM&id=$ID" -O $FILE
+          rm -f /tmp/cookies.txt
+          mkdir -p /usr/lib/jvm
+          tar zxvf $FILE -C /usr/lib/jvm
+          
