@@ -1,7 +1,0 @@
-name: Create a release
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      
